@@ -1,6 +1,10 @@
 package com.demonstration.bdd.drivers;
 
+import cucumber.api.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -45,7 +49,7 @@ public class DriversFactory {
         driver.manage().window().maximize();
     }
     public void implWait(){
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     public void closeBroswer(){
         driver.close();
@@ -58,5 +62,15 @@ public class DriversFactory {
             e.printStackTrace();
         }
     }
+    public void embedScreenshot(Scenario scenario) {
+        try {
+            byte[] screenShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.embed(screenShot, "image/png");
+        } catch (WebDriverException e) {
+            System.out.println("took screen shot. ");
+        }
+
+    }
+
 
 }

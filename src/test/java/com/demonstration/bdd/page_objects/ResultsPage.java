@@ -16,7 +16,7 @@ public class ResultsPage extends DriversFactory {
                break;
            }
         }
-        sleepBrowser(3000);
+        sleepBrowser(5000);
     }
     public List<Double> getAllReviewRatings(){
         List<Double> collectedRatings= new ArrayList<>();

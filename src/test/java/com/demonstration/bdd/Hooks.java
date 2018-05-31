@@ -18,8 +18,11 @@ public class Hooks {
         driversFactory.implWait();
     }
 
- //  @After
-    public void tearDown(){
-        driversFactory.closeBroswer();
-    }
+  @After
+  public void tearDown(Scenario scenario) {
+      if (!scenario.isFailed()) {
+          driversFactory.embedScreenshot(scenario);
+      }
+      driversFactory.closeBroswer();
+  }
 }
