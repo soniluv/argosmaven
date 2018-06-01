@@ -23,7 +23,6 @@ public class DriversFactory {
         switch (browser){
             case "chrome":
             {
-                ChromeDriverManager.getInstance().setup();
                 driver = new ChromeDriver();
                 break;
             }
