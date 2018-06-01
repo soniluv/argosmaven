@@ -23,6 +23,6 @@ public class Hooks {
       if (!scenario.isFailed()) {
           driversFactory.embedScreenshot(scenario);
       }
-      driversFactory.closeBroswer();
+      //driversFactory.closeBroswer();
   }
 }
