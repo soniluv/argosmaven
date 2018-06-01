@@ -5,13 +5,13 @@ Feature: Filter
 
 Scenario Outline: Filter by rating
   Given when I am on the home page
-  When I search for a product "nike"
+  When I search for a product "<product>"
   And I select a filter "<filterValue>"
   Then I should see results filtered by "<expectedValue>"
   Examples:
-    | filterValue | expectedValue |
-    | 5only | 5.0 |
-    | 4or more | 4.0 |
+    |product | filterValue | expectedValue |
+    |nike | 5only | 5.0 |
+    |nike | 4or more | 4.0 |
 
 
 
