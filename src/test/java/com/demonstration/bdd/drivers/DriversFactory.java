@@ -1,6 +1,7 @@
 package com.demonstration.bdd.drivers;
 
 import cucumber.api.Scenario;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class DriversFactory {
         switch (browser){
             case "chrome":
             {
+                ChromeDriverManager.getInstance().setup();
                 driver = new ChromeDriver();
                 break;
             }
